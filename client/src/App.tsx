@@ -24,8 +24,8 @@ type State = {
   acummulatedData: AcummulatedData | undefined;
 };
 
-// const url = "https://us-central1-knaus-purity-test.cloudfunctions.net/api"
-const url = "http://localhost:8080";
+const url = "https://us-central1-knaus-purity-test.cloudfunctions.net/api";
+//const url = "http://localhost:8080";
 
 class App extends Component<Props, State> {
   constructor(props: Props) {
