@@ -1,0 +1,22 @@
+.questionList {
+  display: grid;
+  text-align: left;
+}
+
+.questionList--row {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+}
+
+.questionList--row:hover {
+  background-color: #ebeef1;
+}
+
+.questionList--number {
+  min-width: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}

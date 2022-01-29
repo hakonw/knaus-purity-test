@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/gts/",
+  "rules": {
+    "quotes": [2, "double", {"avoidEscape": true}],
+    "prettier/prettier": ["error", {"singleQuote": false}]
+  }
+}
