@@ -12,6 +12,7 @@ const getPercentage = (
 const QuestionList = (props: {
   onCheck: (questionId: string, checked: boolean) => void;
   stats: AcummulatedData | undefined;
+  initialCheckedIds: string[];
 }) => {
   return (
     <div className="questionList">
@@ -23,6 +24,9 @@ const QuestionList = (props: {
               className="me-2"
               key={question.id}
               type="checkbox"
+              defaultChecked={props.initialCheckedIds.some(
+                (id) => id === question.id
+              )}
               onChange={(e) => props.onCheck(question.id, e.target.checked)}
             />
             {question.text}

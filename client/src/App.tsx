@@ -5,9 +5,11 @@ import QuestionList from "./QuestionList";
 import Questions from "./Questions";
 import { v4 as uuid } from "uuid";
 import StatsCard from "./StatsCard";
+import { getCookie, setCookie } from "typescript-cookie";
 
 export type AcummulatedData = {
   average: number;
+  total: number;
   stats: {
     id: string;
     percentChecked: number;
@@ -18,6 +20,7 @@ type Props = {};
 type State = {
   score: number;
   checkedIds: string[];
+  initialCheckedIds: string[];
   isComplete: boolean;
   isLoading: boolean;
   uniqueId: string;
@@ -30,12 +33,22 @@ const url = "https://us-central1-knaus-purity-test.cloudfunctions.net/api";
 class App extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
+
+    let uniqueId = getCookie("uniqueId");
+    if (uniqueId === undefined) {
+      uniqueId = uuid();
+      setCookie("uniqueId", uniqueId);
+    }
+
+    const initial = JSON.parse(getCookie("checked") ?? "[]") as string[];
+
     this.state = {
-      score: 0,
-      checkedIds: [],
+      score: initial.length,
+      checkedIds: initial,
+      initialCheckedIds: initial,
       isComplete: false,
       isLoading: false,
-      uniqueId: uuid(),
+      uniqueId: uniqueId,
       acummulatedData: undefined,
     };
   }
@@ -82,13 +95,17 @@ class App extends Component<Props, State> {
 
   updateScore = (questionId: string, checked: boolean): void => {
     if (checked) {
+      const ids = [...this.state.checkedIds, questionId];
+      setCookie("checked", JSON.stringify(ids));
       this.setState({
-        checkedIds: [...this.state.checkedIds, questionId],
+        checkedIds: ids,
         score: this.state.score + 1,
       });
     } else {
+      const ids = this.state.checkedIds.filter((id) => id !== questionId);
+      setCookie("checked", JSON.stringify(ids));
       this.setState({
-        checkedIds: this.state.checkedIds.filter((id) => id !== questionId),
+        checkedIds: ids,
         score: this.state.score - 1,
       });
     }
@@ -107,6 +124,7 @@ class App extends Component<Props, State> {
               <QuestionList
                 onCheck={this.updateScore}
                 stats={this.state.acummulatedData}
+                initialCheckedIds={this.state.initialCheckedIds}
               ></QuestionList>
 
               <button
@@ -119,6 +137,10 @@ class App extends Component<Props, State> {
               >
                 Generate results!
               </button>
+              <div className="text-muted text-center">
+                (Leverer du med 0 i score telles det ikke. Flere submissions
+                overskriver ditt forrige resultat.)
+              </div>
             </div>
 
             {this.state.isComplete && (
@@ -136,8 +158,8 @@ class App extends Component<Props, State> {
           <div className="container text-center font-italic text-muted p-4 mb-5">
             <div>Laget av Lise & Wardeberg</div>
             <div>
-              (Kan hende det brukes cookies, og vi samler ikke personlig
-              informasjon. Tnx!)
+              (Det brukes cookies, og vi samler ikke personlig informasjon.
+              Tnx!)
             </div>
           </div>
         </footer>

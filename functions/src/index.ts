@@ -1,5 +1,5 @@
 import type {HttpFunction} from "@google-cloud/functions-framework/build/src/functions";
-import {SaveCallback, Storage} from "@google-cloud/storage";
+import {Storage} from "@google-cloud/storage";
 import {randomUUID} from "crypto";
 import express = require("express");
 
@@ -23,6 +23,7 @@ type SavedData = {
 
 type AcummulatedData = {
   average: number;
+  total: number;
   stats: {
     id: string;
     percentChecked: number;
@@ -120,33 +121,50 @@ export const getStats: HttpFunction = async (req, res) => {
   }
 
   let total = 0;
-  const score: number[] = [];
+  const totalScore: number[] = [];
   const amountChecked: Map<string, number> = new Map();
   try {
     const [files] = await bucket.getFiles();
 
-    for (const file of files) {
-      total += 1;
-      const data = await file
+    total = files.length;
+
+    const promises = files.map(file =>
+      file
         .download()
         .then(
           response => JSON.parse(response[0].toString("utf-8")) as SavedData
-        );
+        )
+    );
 
+    const datas = await Promise.all(promises);
+    for (const data of datas) {
+      totalScore.push(data.checkedIds.length);
       data.checkedIds.forEach(id =>
         amountChecked.set(id, (amountChecked.get(id) ?? 0) + 1)
       );
-      score.push(data.checkedIds.length);
     }
+
+    // Promise.all(promises).then(datas =>
+    //   datas.forEach(data => {
+    //     totalScore.push(data.checkedIds.length);
+    //     data.checkedIds.forEach(id =>
+    //       amountChecked.set(id, (amountChecked.get(id) ?? 0) + 1)
+    //     );
+    //   })
+    // );
 
     const stats = Array.from(amountChecked).map(([id, count]) => ({
       id: id,
       percentChecked: count / total,
     }));
 
-    const average = score.reduce((acc, cur) => acc + cur, 0) / total;
+    const average = totalScore.reduce((acc, cur) => acc + cur, 0) / total;
 
-    const body: AcummulatedData = {average: average, stats: stats};
+    const body: AcummulatedData = {
+      average: average,
+      total: total,
+      stats: stats,
+    };
     res.json(body);
   } catch (e) {
     fault("stats", res, e as Error);

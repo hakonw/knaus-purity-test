@@ -110,7 +110,14 @@ const Questions: Question[] = [
     id: "hybel-smuglet-person",
     text: "Smuglet inn noen på hyblene?",
   },
-
+  {
+    id: "sove",
+    text: "Sovet på hyblene?",
+  },
+  {
+    id: "vipse",
+    text: "Vipset istedenfor å krysse",
+  },
   {
     id: "kort-kortmisbrukt",
     text: "Kortmisbrukt?",
@@ -137,20 +144,23 @@ const Questions: Question[] = [
   },
   {
     id: "kastet-ut",
-    text: "Kastet ut?",
+    text: "Blitt kastet ut?",
   },
   {
     id: "disiplinary",
     text: "Hatt en disiplinærsak mot deg?",
   },
-
+  {
+    id: "hybel-til-skole",
+    text: "Dratt rett fra hybelen til universitetet?",
+  },
   {
     id: "hybel-berget",
     text: "Berget noe fra en hybel?",
   },
   {
     id: "hybel-anti-berget",
-    text: "Antiberget noe fra en hybel?",
+    text: "Antiberget noe til en hybel?",
   },
   {
     id: "hybel-uberbart",
@@ -165,10 +175,29 @@ const Questions: Question[] = [
     text: "Knust noe på hyblene?",
   },
   {
+    id: "nude-sendt",
+    text: "Sendt nude til en intern?",
+  },
+  {
+    id: "nude-fatt",
+    text: "Motatt nude til en intern?",
+  },
+  {
+    id: "nude-tatt",
+    text: "Tatt nude på huset?",
+  },
+  {
+    id: "nude-send-accidental",
+    text: "Send nude til en annen intern uten å mene det?",
+  },
+  {
     id: "hybel-drikking",
     text: "Drukket alkohol på hyblene? (i teorien)",
   },
-
+  {
+    id: "body-shot",
+    text: "Tatt en bodyshot?",
+  },
   {
     id: "holde-hender",
     text: "Holdt hender (ikke platonisk) på samfundet?",
@@ -197,7 +226,10 @@ const Questions: Question[] = [
     id: "kysset-intern-gjeng",
     text: "Kysset en annen i samme gjeng?",
   },
-
+  {
+    id: "sex-intern",
+    text: "Hatt sex med noen som er interne (Nytt spørssmål)?",
+  },
   {
     id: "sex",
     text: "Hatt samleie på huset?",
@@ -245,6 +277,18 @@ const Questions: Question[] = [
   {
     id: "sex-pa-roykerom",
     text: "Hatt sex på blackbox?",
+  },
+  {
+    id: "sex-pa-baren",
+    text: "Hatt sex i baren?",
+  },
+  {
+    id: "sex-pa-buret",
+    text: "Hatt sex på buret?",
+  },
+  {
+    id: "sex-pa-regi",
+    text: "Hatt sex på regi?",
   },
   {
     id: "k35-adventure",
@@ -311,7 +355,7 @@ const Questions: Question[] = [
 
   {
     id: "bodis-dryhump",
-    text: "Dryhumpet noen i bodegaen?",
+    text: "Dryhumpet noen (eller blitt) i bodegaen?",
   },
 
   {

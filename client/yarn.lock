@@ -8171,6 +8171,11 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
+typescript-cookie@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/typescript-cookie/-/typescript-cookie-1.0.3.tgz#fa036aac4937ee528258035b7495a7813a7656d5"
+  integrity sha512-eGu8HYw2oI+NXV7JJ1QDFi02EWYTl8zENevq5kSI3JcAdCxtUvjW6Nj5Mjrej83/oK8O/5OyRDuivhSFU49GcA==
+
 typescript@^4.4.2:
   version "4.5.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"

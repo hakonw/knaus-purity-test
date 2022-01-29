@@ -10,7 +10,7 @@ const Header = (props: { score: number; total: number }) => {
             <div className="col">
               <h5>Purity</h5>
               <h6 className="text-muted">
-                {props.total - props.score} / {props.total}
+                {props.score} / {props.total}
               </h6>
             </div>
           </div>
