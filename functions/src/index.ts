@@ -84,6 +84,12 @@ export const storeQuizAnswers: HttpFunction = (req, res) => {
   const userId = isValidV4UUID(message.userId) ? message.userId : randomUUID();
   const checkedIds = Array.from(new Set(message.checkedIds)); // TODO remove all non-valid
 
+  if (checkedIds.length === 0) {
+    res.contentType("application/json");
+    res.json({status: "skipped"});
+    return;
+  }
+
   const data: SavedData = {
     userId: userId,
     date: new Date().toISOString(),
@@ -138,7 +144,7 @@ export const getStats: HttpFunction = async (req, res) => {
       percentChecked: count / total,
     }));
 
-    const average = score.reduce((acc, cur) => acc + cur) / total;
+    const average = score.reduce((acc, cur) => acc + cur, 0) / total;
 
     const body: AcummulatedData = {average: average, stats: stats};
     res.json(body);

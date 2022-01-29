@@ -29,7 +29,10 @@ const QuestionList = (props: {
             <span className="ms-auto">
               {props.stats !== undefined && (
                 <>
-                  {(getPercentage(props.stats, question.id) ?? 0).toFixed(2)}%
+                  {(
+                    (getPercentage(props.stats, question.id) ?? 0) * 100
+                  ).toFixed(0)}
+                  %
                 </>
               )}
             </span>
