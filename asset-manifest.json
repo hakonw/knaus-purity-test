@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/knaus-purity-test/static/css/main.6b66435a.css",
-    "main.js": "/knaus-purity-test/static/js/main.53e700ca.js",
+    "main.js": "/knaus-purity-test/static/js/main.4d2ed16f.js",
     "static/js/787.b8586b40.chunk.js": "/knaus-purity-test/static/js/787.b8586b40.chunk.js",
     "index.html": "/knaus-purity-test/index.html",
     "main.6b66435a.css.map": "/knaus-purity-test/static/css/main.6b66435a.css.map",
-    "main.53e700ca.js.map": "/knaus-purity-test/static/js/main.53e700ca.js.map",
+    "main.4d2ed16f.js.map": "/knaus-purity-test/static/js/main.4d2ed16f.js.map",
     "787.b8586b40.chunk.js.map": "/knaus-purity-test/static/js/787.b8586b40.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6b66435a.css",
-    "static/js/main.53e700ca.js"
+    "static/js/main.4d2ed16f.js"
   ]
 }
