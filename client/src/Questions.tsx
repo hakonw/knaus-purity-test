@@ -30,7 +30,7 @@ const Questions: Question[] = [
   },
   {
     id: "bodis-med-hjem",
-    text: "Funnet deg ONS i bodegaen?",
+    text: "Funnet deg hook i bodegaen?",
   },
   {
     id: "samfundet-arrangement",
@@ -74,7 +74,10 @@ const Questions: Question[] = [
     id: "brukt-dassdass",
     text: "Brukt dassdass?",
   },
-
+  {
+    id: "brukt-klst-dass",
+    text: "Brukt KLST toalettet?",
+  },
   {
     id: "ufs-sort-uke",
     text: "Være sort på krysseliste i over en uke?",
@@ -249,7 +252,7 @@ const Questions: Question[] = [
   },
   {
     id: "klamma",
-    text: "Fått en kjønnssykdom fra et ONS på huset?",
+    text: "Fått en kjønnssykdom fra pga huset?",
   },
   {
     id: "klamma-soci",
