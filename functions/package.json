@@ -15,7 +15,7 @@
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
-    "deploy": "yarn compile && gcloud functions deploy api --allow-unauthenticated --runtime nodejs16 --trigger-http --max-instances 5 --timeout 50",
+    "deploy": "yarn compile && gcloud functions deploy api --allow-unauthenticated --runtime nodejs16 --trigger-http --max-instances 10 --timeout 50",
     "fix": "gts fix",
     "pretest": "yarn run compile",
     "posttest": "yarn run lint"
