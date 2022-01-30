@@ -161,6 +161,7 @@ class App extends Component<Props, State> {
               (Det brukes cookies, og vi samler ikke personlig informasjon.
               Tnx!)
             </div>
+            <a href="https://github.com/hakonw/knaus-purity-test">Github</a>
           </div>
         </footer>
       </Fragment>
