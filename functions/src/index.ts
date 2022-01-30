@@ -109,10 +109,6 @@ export const storeQuizAnswers: HttpFunction = (req, res) => {
     .save(contents, options)
     .then(() => res.json({status: "ok"}))
     .catch(e => fault("save", res, e as Error));
-
-  // res.type("application/json");
-  // res.status(200).json({message: "hei"});
-  // res.send(JSON.stringify({messsage: "hei"}));
 };
 
 export const getStats: HttpFunction = async (req, res) => {
@@ -143,15 +139,6 @@ export const getStats: HttpFunction = async (req, res) => {
         amountChecked.set(id, (amountChecked.get(id) ?? 0) + 1)
       );
     }
-
-    // Promise.all(promises).then(datas =>
-    //   datas.forEach(data => {
-    //     totalScore.push(data.checkedIds.length);
-    //     data.checkedIds.forEach(id =>
-    //       amountChecked.set(id, (amountChecked.get(id) ?? 0) + 1)
-    //     );
-    //   })
-    // );
 
     const stats = Array.from(amountChecked).map(([id, count]) => ({
       id: id,
