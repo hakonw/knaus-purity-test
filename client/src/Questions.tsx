@@ -199,6 +199,10 @@ const Questions: Question[] = [
     text: "Tatt en bodyshot?",
   },
   {
+    id: "flaming-shot",
+    text: "Tatt en flaming? (Nytt spørsmål)",
+  },
+  {
     id: "holde-hender",
     text: "Holdt hender (ikke platonisk) på samfundet?",
   },
@@ -280,7 +284,7 @@ const Questions: Question[] = [
   },
   {
     id: "sex-pa-baren",
-    text: "Hatt sex i baren?",
+    text: "Hatt sex i baren til en hybel?",
   },
   {
     id: "sex-pa-buret",
