@@ -20,7 +20,7 @@ const StatsCard = (props: {
       )}
       {props.stats !== undefined && (
         <>
-          <div>Gjennomsnittet var {props.stats?.average.toFixed(2)}</div>
+          <div>Gjennomsnittet var {props.stats?.average.toFixed(2)}%</div>
           <div>Antall folk som har tatt quizen: {props.stats?.total}.</div>
           <div className="text-muted">
             Statistikken som vises er hvor mange som har krysset den av.
